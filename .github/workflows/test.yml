@@ -98,11 +98,11 @@ jobs:
         run: |
           setup_java_ver=$(grep -o 'JavaVersion.VERSION_[0-9_]\+' app/build.gradle |head -1 |sed 's/.*_//')
           echo "setup_java_ver=$setup_java_ver" >> $GITHUB_ENV
-      - uses: actions/setup-java@v4
-        if: ${{ env.commit }}
-        with:
-          distribution: temurin
-          java-version: ${{ env.setup_java_ver }}
+      #- uses: actions/setup-java@v4
+       # if: ${{ env.commit }}
+     #   with:
+     #     distribution: temurin
+     #     java-version: ${{ env.setup_java_ver }}
       - uses: gradle/gradle-build-action@v2
         if: ${{ env.commit }}
       - name: Build With Gradle
